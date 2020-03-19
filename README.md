@@ -1,2 +1,2 @@
-# Home Challenge #1
+# IoT 2020 @ PoliMi
 
