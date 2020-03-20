@@ -4,7 +4,7 @@
  
 /**
  * Implementation of Home Challenge #1 for IoT course 2019/2020 @ PoliMi.
- * The challenge consists in setting up 3 motes exchanges messages with each other,
+ * The challenge consists in setting up 3 motes exchanging messages with each other,
  * each one sending at different frequencies (1, 3 and 5 Hz respectively) and incrementing
  * a local counter everytime a message is received.
  * Messages whose counter value is a multiple of 10 switch off all the leds, otherwise
@@ -18,7 +18,7 @@ module HomeChallenge1C @safe() {
     interface Receive;
     interface AMSend;
     interface Timer<TMilli> as MilliTimer;
-    interface SplitControl as AMControl; // Interface to start the radio
+    interface SplitControl as AMControl;
     interface Packet;
   }
 }
@@ -27,8 +27,8 @@ implementation {
   message_t packet;
 
   bool locked;
-  uint16_t counter = 0;
-  int period;
+  uint16_t counter = 0, period;
+  uint16_t periods[] = {1000, 333, 200};
   
   event void Boot.booted() {
     call AMControl.start();
@@ -36,13 +36,7 @@ implementation {
 
   event void AMControl.startDone(error_t err) {
     if (err == SUCCESS) {
-      if (TOS_NODE_ID == 1) {
-        period = 1000;
-      } else if (TOS_NODE_ID == 2) {
-        period = 333;
-      } else {
-        period = 200;
-      }
+      period = periods[TOS_NODE_ID - 1];
       call MilliTimer.startPeriodic(period);
     }
     else {
@@ -51,11 +45,9 @@ implementation {
   }
 
   event void AMControl.stopDone(error_t err) {
-    // do nothing
   }
   
   event void MilliTimer.fired() {
-    printf("RadioCountToLedsC: timer fired, counter is %u.\n", counter);
     if (locked) {
       return;
     }
@@ -64,11 +56,10 @@ implementation {
       if (rcm == NULL) {
 	return;
       }
-	  // use TOS_NODE_ID if the sender ID needs to be included in the message
       rcm->counter = counter;
       rcm->senderId = TOS_NODE_ID;
       if (call AMSend.send(AM_BROADCAST_ADDR, &packet, sizeof(radio_count_msg_t)) == SUCCESS) {
-	printf("RadioCountToLedsC: packet sent.\n");	
+	printf("RadioCountToLedsC: packet sent with counter %u.\n", counter);	
 	locked = TRUE;
       }
     }
