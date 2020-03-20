@@ -45,8 +45,8 @@
       <breakpoints />
       <interface_config>
         org.contikios.cooja.interfaces.Position
-        <x>25.706735683630484</x>
-        <y>74.6099713370376</y>
+        <x>49.11780236873413</x>
+        <y>59.25751607469792</y>
         <z>0.0</z>
       </interface_config>
       <interface_config>
@@ -63,8 +63,8 @@
       <breakpoints />
       <interface_config>
         org.contikios.cooja.interfaces.Position
-        <x>43.901509216634985</x>
-        <y>84.05207001540876</y>
+        <x>82.59531497219469</x>
+        <y>62.69558719903122</y>
         <z>0.0</z>
       </interface_config>
       <interface_config>
@@ -81,8 +81,8 @@
       <breakpoints />
       <interface_config>
         org.contikios.cooja.interfaces.Position
-        <x>22.012549345773014</x>
-        <y>98.1017444472853</y>
+        <x>38.376425423634814</x>
+        <y>77.2330502176314</y>
         <z>0.0</z>
       </interface_config>
       <interface_config>
@@ -112,7 +112,7 @@
       <skin>org.contikios.cooja.plugins.skins.GridVisualizerSkin</skin>
       <skin>org.contikios.cooja.plugins.skins.TrafficVisualizerSkin</skin>
       <skin>org.contikios.cooja.plugins.skins.UDGMVisualizerSkin</skin>
-      <viewport>4.365164522243816 0.0 0.0 4.365164522243816 53.07427945285104 -97.95752715879183</viewport>
+      <viewport>4.923852112753105 0.0 0.0 4.923852112753105 -65.3234797657126 -142.0296816046767</viewport>
     </plugin_config>
     <width>400</width>
     <z>1</z>
@@ -128,7 +128,7 @@
       <coloring />
     </plugin_config>
     <width>1320</width>
-    <z>4</z>
+    <z>2</z>
     <height>240</height>
     <location_x>400</location_x>
     <location_y>160</location_y>
@@ -145,7 +145,7 @@
       <zoomfactor>500.0</zoomfactor>
     </plugin_config>
     <width>1720</width>
-    <z>3</z>
+    <z>4</z>
     <height>166</height>
     <location_x>0</location_x>
     <location_y>738</location_y>
@@ -157,7 +157,7 @@
       <decorations>true</decorations>
     </plugin_config>
     <width>1040</width>
-    <z>2</z>
+    <z>3</z>
     <height>160</height>
     <location_x>680</location_x>
     <location_y>0</location_y>
