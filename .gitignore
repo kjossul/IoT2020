@@ -1,3 +1,5 @@
 build/
 simbuild/
 *.xml
+TOSSIM.py
+_TOSSIMmodule.so
