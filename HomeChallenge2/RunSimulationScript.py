@@ -60,7 +60,7 @@ print ">>>Will boot at time",  time1/t.ticksPerSecond(), "[sec]";
 
 print "Creating node 2...";
 node2 = t.getNode(2);
-time2 = 1*t.ticksPerSecond();
+time2 = 5*t.ticksPerSecond();
 node2.bootAtTime(time2);
 print ">>>Will boot at time", time2/t.ticksPerSecond(), "[sec]";
 
@@ -103,8 +103,7 @@ for i in range(1, 3):
     t.getNode(i).createNoiseModel()
 
 print "Start simulation with TOSSIM! \n\n\n";
-
-for i in range(0,1200):
+for i in range(0,5200):
 	t.runNextEvent()
 	
 print "\n\n\nSimulation finished!";

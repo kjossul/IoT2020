@@ -29,6 +29,6 @@ implementation {
   App.Packet -> AMSenderC;
   App.AMPacket -> AMSenderC;
   App.Read -> FakeSensorC;
-  
+  App.PacketAcknowledgements->ActiveMessageC;
   }
 
