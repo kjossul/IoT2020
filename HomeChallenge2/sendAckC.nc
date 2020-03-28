@@ -43,11 +43,11 @@ module sendAckC @safe() {
 
   void sendReq() {
    
-   my_msg_t* mess=(my_msg_t*)(call Packet.getPayload(&packet,sizeof(my_msg_t)));
+   my_msg_t* msg=(my_msg_t*)(call Packet.getPayload(&packet,sizeof(my_msg_t)));
   
-   mess->msg_type = REQ;
-   mess->counter = counter++;
-   mess->value = 0;  // value is not necessary in REQ message
+   msg->msg_type = REQ;
+   msg->counter = counter++;
+   msg->value = 0;  // value is not necessary in REQ message
    
    call PacketAcknowledgements.requestAck (&packet);
    
@@ -73,7 +73,7 @@ module sendAckC @safe() {
   event void AMControl.startDone(error_t err){
     
     if (err == SUCCESS) { 
-		dbg("radio","Radio on!\n");
+		dbg("radio","Radio turned on\n");
 		
 		if (TOS_NODE_ID == 1) {
 			// node 1 will make the the event starting...
@@ -113,10 +113,10 @@ module sendAckC @safe() {
 
   event message_t* Receive.receive(message_t* buf,void* payload, uint8_t len) {
 	
-   my_msg_t* mess=(my_msg_t*)payload;
-   rec_id = mess->value;
-   dbg("radio_rec","Message received at time %s (counter=%u).\n", sim_time_string(), mess->counter );  
-   if (mess->msg_type == REQ ){
+   my_msg_t* msg=(my_msg_t*)payload;
+   rec_id = msg->value;
+   dbg("radio_rec","Message received at time %s (counter=%u).\n", sim_time_string(), msg->counter );  
+   if (msg->msg_type == REQ ){
   		sendResp();
    }
    return buf;
@@ -124,11 +124,11 @@ module sendAckC @safe() {
   
   event void Read.readDone(error_t result, uint16_t data) {
 
-   my_msg_t* mess=(my_msg_t*)(call Packet.getPayload(&packet,sizeof(my_msg_t)));
+   my_msg_t* msg=(my_msg_t*)(call Packet.getPayload(&packet,sizeof(my_msg_t)));
   
-   mess->msg_type = RESP;
-   mess->value = data;
-   mess->counter = counter;
+   msg->msg_type = RESP;
+   msg->value = data;
+   msg->counter = counter;
 
    dbg("radio_send","t=%s: sending response to node 1.\n", sim_time_string() );
    dbg("radio_send","Value read from sensor: %u.\n", data );   
