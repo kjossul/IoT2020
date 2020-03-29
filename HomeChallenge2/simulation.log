@@ -1,0 +1,58 @@
+********************************************
+*                                          *
+*             TOSSIM Script                *
+*                                          *
+********************************************
+Initializing mac....
+Initializing radio channels....
+    using topology file: topology.txt
+    using noise file: meyer-heavy.txt
+Initializing simulator....
+Activate debug message on channel init
+Activate debug message on channel boot
+Activate debug message on channel radio
+Activate debug message on channel radio_send
+Activate debug message on channel radio_ack
+Activate debug message on channel radio_rec
+Activate debug message on channel radio_pack
+Activate debug message on channel role
+Creating node 1...
+>>>Will boot at time 0 [sec]
+Creating node 2...
+>>>Will boot at time 5 [sec]
+Creating radio channels...
+>>>Setting radio channel from node  1  to node  2  with gain  -60.0  dBm
+>>>Setting radio channel from node  2  to node  1  with gain  -60.0  dBm
+Initializing Closest Pattern Matching (CPM)...
+Reading noise model data file: meyer-heavy.txt
+Loading:##Done!
+>>>Creating noise model for node: 1
+>>>Creating noise model for node: 2
+Start simulation with TOSSIM! 
+
+
+
+DEBUG (1): [t=0:0:0.000000000] The Application is now booted.
+DEBUG (1): [t=0:0:0.976562510] Sent request to node 2. (counter=0)
+ACK not received.
+DEBUG (1): [t=0:0:1.953125010] Sent request to node 2. (counter=1)
+ACK not received.
+DEBUG (1): [t=0:0:2.929687510] Sent request to node 2. (counter=2)
+ACK not received.
+DEBUG (1): [t=0:0:3.906250010] Sent request to node 2. (counter=3)
+ACK not received.
+DEBUG (1): [t=0:0:4.882812510] Sent request to node 2. (counter=4)
+ACK not received.
+DEBUG (2): [t=0:0:5.000000000] The Application is now booted.
+DEBUG (1): [t=0:0:5.859375010] Sent request to node 2. (counter=5)
+DEBUG (2): [t=0:0:5.862579337] Message received with counter=5.
+ACK received.
+DEBUG (2): [t=0:0:5.872070322] Sent response to node 1.
+DEBUG (2): Value read from sensor: 50421.
+DEBUG (1): [t=0:0:5.881713820] Message received with counter=5.
+DEBUG (1): Value received from node 2: 50421
+ACK received.
+
+
+
+Simulation finished!
