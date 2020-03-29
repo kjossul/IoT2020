@@ -5,5 +5,8 @@
 * Riccardo Novic
 * Raffaele Zenga
 
-## Install instructions
-Each folder is a separate project. TinyOs assignments require relative paths to work, thus each individual folder needs to be copied in the tinyos-main/apps directory.
+## Install & run instructions
+Each folder is a separate project.
+
+* HomeChallenge1: `make telosb` will create an executable files in the `build/` subdirectory, which can then be used in Cooja for the logic inside the motes.
+* HomeChallenge2: `make micaz sim` will create the relative binaries, the simulation is then executed in a python script (`python RunSimulationScript.py`)

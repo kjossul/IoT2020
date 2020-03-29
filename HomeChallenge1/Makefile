@@ -1,5 +1,4 @@
 COMPONENT=HomeChallenge1AppC
-TOS=../../tos
-CFLAGS += -I$(TOS)/lib/printf
+CFLAGS += -I$(TOSROOT)/tos/lib/printf
 include $(MAKERULES)
 
