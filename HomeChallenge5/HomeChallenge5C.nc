@@ -28,6 +28,7 @@ implementation {
 
   bool locked;
   uint16_t period = 5000;
+  char id[2];
   
   event void Boot.booted() {
     call AMControl.start();
@@ -58,6 +59,9 @@ implementation {
       }
       rm->value = call Random.rand16() % 101;
       strcpy(rm->topic, "foo/bar");
+      // Appends mote id to the topic to make it unique
+      sprintf(id, "%d", TOS_NODE_ID);
+      strcat(rm->topic, id);
       if (call AMSend.send(1, &packet, sizeof(mymsg_t)) == SUCCESS) {
 	printf("Packet sent with value %u and topic %s.\n", rm->value, rm->topic);	
 	locked = TRUE;
