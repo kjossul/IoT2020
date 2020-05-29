@@ -75,7 +75,7 @@ implementation {
     else {
       mymsg_t* rm = (mymsg_t*)payload;
       
-      printf("Received %u - %s\n", rm->value, rm->topic);
+      printf("{\"value\": %u, \"topic\": \"%s\"}\n", rm->value, rm->topic);
       return bufPtr;
     }
   }
